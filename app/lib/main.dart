@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0x99F1784B),
+          backgroundColor: Color(0x99f67450),
           title: Text("اعقل"),
         ),
         body: new Landing(),
@@ -29,7 +29,7 @@ class Landing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFFF1784B),
+      color: Color(0xFFf67450),
       child: Center(
         child: Image.asset(
           "assets\\logo.png",
