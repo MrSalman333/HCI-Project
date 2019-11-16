@@ -12,13 +12,28 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color(0x99F1784B),
           title: Text("اعقل"),
         ),
-        body: Center(
-          child: Image.asset(
-            "assets\\logo.png",
-            scale: 1,
-          ),
+        body: new Landing(),
+      ),
+    );
+  }
+}
+
+class Landing extends StatelessWidget {
+  const Landing({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xFFF1784B),
+      child: Center(
+        child: Image.asset(
+          "assets\\logo.png",
+          scale: 1,
         ),
       ),
     );
