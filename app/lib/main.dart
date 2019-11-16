@@ -11,10 +11,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0x99f67450),
-          title: Text("اعقل"),
-        ),
         body: new Landing(),
       ),
     );
