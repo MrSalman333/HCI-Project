@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
-  static const lablesStyle =
-      TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,16 +26,16 @@ class Login extends StatelessWidget {
               children: <Widget>[
                 Text(
                   "الاسم",
-                  style: lablesStyle,
+                  style: Theme.of(context).textTheme.subtitle,
                 ),
                 TextField(
                   decoration:
                       InputDecoration(filled: true, fillColor: Colors.white),
                 ),
-                Container(height: 20),
+                SizedBox(height: 20),
                 Text(
                   "الرقم السري",
-                  style: lablesStyle,
+                  style: Theme.of(context).textTheme.subtitle,
                 ),
                 TextField(
                   decoration:
