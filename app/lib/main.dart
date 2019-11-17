@@ -16,10 +16,16 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xFFA65131),
         primarySwatch: Colors.orange,
         textTheme: ThemeData.light().textTheme.copyWith(
-              subtitle: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
+              display2: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+              display1: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
             ),
       ),
       home: Scaffold(

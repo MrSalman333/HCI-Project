@@ -26,7 +26,7 @@ class Login extends StatelessWidget {
               children: <Widget>[
                 Text(
                   "الاسم",
-                  style: Theme.of(context).textTheme.subtitle,
+                  style: Theme.of(context).textTheme.display2,
                 ),
                 TextField(
                   decoration:
@@ -35,7 +35,7 @@ class Login extends StatelessWidget {
                 SizedBox(height: 20),
                 Text(
                   "الرقم السري",
-                  style: Theme.of(context).textTheme.subtitle,
+                  style: Theme.of(context).textTheme.display2,
                 ),
                 TextField(
                   decoration:
