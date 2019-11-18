@@ -79,7 +79,7 @@ class SignUp extends StatelessWidget {
                           style: Theme.of(context).textTheme.display1,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () => Navigator.pushNamed(context, '/daydata'),
                     ),
                   )
                 ],

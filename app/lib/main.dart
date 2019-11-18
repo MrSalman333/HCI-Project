@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import './pages/Landing.dart';
-import './pages/Login.dart';
-import './pages/SignUp.dart';
+import 'pages/Landing.dart';
+import 'pages/Login.dart';
+import 'pages/SignUp.dart';
+import 'pages/Data.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFFf67450),
         accentColor: Color(0xFFA65131),
         primaryColorLight: Color(0xFFF8C2AE),
-        primarySwatch: Colors.orange,
+        backgroundColor: Color(0xFFFBF1F1),
+        //primarySwatch: Colors.orange,
         textTheme: ThemeData.light().textTheme.copyWith(
               display2: TextStyle(
                 color: Colors.white,
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => Landing(),
         '/login': (context) => Login(),
         '/signup': (context) => SignUp(),
+        '/daydata': (context) => Data(),
       },
     );
   }

@@ -55,8 +55,9 @@ class Login extends StatelessWidget {
                             "دخول",
                             style: const TextStyle(color: Colors.white),
                           ),
-                          onPressed: () {},
                           color: Theme.of(context).accentColor,
+                          onPressed: () =>
+                              Navigator.pushNamed(context, '/daydata'),
                         ),
                         FlatButton(
                           child: const Text(
