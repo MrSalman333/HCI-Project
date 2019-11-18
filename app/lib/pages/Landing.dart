@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class Landing extends StatelessWidget {
@@ -7,11 +9,14 @@ class Landing extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Timer(Duration(seconds: 1), () {
+      Navigator.pushReplacementNamed(context, '/login');
+    });
     return Container(
       color: Theme.of(context).primaryColor,
       child: Center(
         child: Image.asset(
-          "assets\\logo.png",
+          "assets/logo.png",
           scale: 1,
         ),
       ),

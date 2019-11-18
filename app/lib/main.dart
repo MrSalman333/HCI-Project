@@ -29,9 +29,11 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: Scaffold(
-        body: new SignUp(),
-      ),
+      routes: {
+        '/': (context) => Landing(),
+        '/login': (context) => Login(),
+        '/signup': (context) => SignUp(),
+      },
     );
   }
 }
