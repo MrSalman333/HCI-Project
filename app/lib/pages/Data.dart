@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/chart.dart';
+
 class Data extends StatefulWidget {
   @override
   _DataState createState() => _DataState();
 }
 
 class _DataState extends State<Data> {
-  String _selected;
+  String _selected = "day";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +28,7 @@ class _DataState extends State<Data> {
                 groupValue: _selected,
                 onValueChanged: (value) => setState(() => _selected = value)),
           ),
-          _selected == "day" ? Text('day') : Text("week")
+          _selected == "day" ? Chart() : Text("week")
         ],
       ),
     );
