@@ -9,21 +9,23 @@ class Chart extends StatelessWidget {
   final _barMargin = .6965;
   final _barMaxHeight = 284.0;
  */
-  final _barWidth = 60.0;
+/*   final _barWidth = 60.0;
   final _barMargin = 14.0;
+  final _barMaxHeight = 284.0; */
+
+  final _barWidth = 30.0;
   final _barMaxHeight = 284.0;
 
   List<Widget> get _randomBars {
     var list = <Widget>[];
-    for (var i = 0; i < 4; i++) {
-      var randomS = Random().nextInt(21600);
-      if (randomS < 2000) randomS = 0;
+    for (var i = 0; i < 8; i++) {
+      var randomS = Random().nextInt(10800);
+      if (randomS < 1000) randomS = 0;
       list.add(Bar(
-        barMargin: _barMargin,
         barMaxHeight: _barMaxHeight,
         barWidth: _barWidth,
         driveTime: Duration(seconds: randomS),
-        maxDriveTime: Duration(seconds: 21600),
+        maxDriveTime: Duration(seconds: 10800),
         unfucusPer: Random().nextDouble(),
       ));
     }
@@ -61,7 +63,9 @@ class Chart extends StatelessWidget {
                   ),
                   Container(
                     height: _barMaxHeight,
+                    width: double.infinity,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: _randomBars,
                     ),
@@ -110,20 +114,17 @@ class ChartPainter extends CustomPainter {
 
 class Bar extends StatelessWidget {
   final barWidth;
-  final barMargin;
-  var barMaxHeight;
+  final barMaxHeight;
   final Duration driveTime;
   final unfucusPer;
   final Duration maxDriveTime;
   Bar(
-      {this.barMargin,
-      this.barMaxHeight,
+      {this.barMaxHeight,
       this.barWidth,
       this.driveTime,
       this.unfucusPer,
-      this.maxDriveTime}) {
-    this.barMaxHeight -= 20;
-  }
+      this.maxDriveTime});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -131,32 +132,31 @@ class Bar extends StatelessWidget {
       children: <Widget>[
         Container(
           height: 20,
+          width: barWidth,
           child: Text(
             "${driveTime.inHours}h${driveTime.inMinutes - (driveTime.inHours * 60)}m",
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
         ),
         Container(
-          margin: EdgeInsets.symmetric(horizontal: barMargin),
           color: Colors.deepPurple.withBlue(255),
           height: (driveTime.inSeconds *
                   (1 - unfucusPer) /
                   maxDriveTime.inSeconds) *
-              barMaxHeight,
+              (barMaxHeight - 20),
           width: barWidth,
           alignment: Alignment.center,
         ),
         Container(
-          margin: EdgeInsets.symmetric(horizontal: barMargin),
           color: Colors.red,
           height: (driveTime.inSeconds * unfucusPer / maxDriveTime.inSeconds) *
-              barMaxHeight,
+              (barMaxHeight - 20),
           width: barWidth,
           alignment: Alignment.center,
           child: Text(
             "${(unfucusPer * 100).round()}%",
             style: TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+                color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
           ),
         ),
       ],
