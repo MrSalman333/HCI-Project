@@ -34,48 +34,87 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        SizedBox(height: 20),
-        Text("معدل عدم التركيز اثناء القيادة"),
-        Container(
-          width: double.infinity,
-          height: 359,
-          padding: const EdgeInsets.all(20),
-          child: Stack(
-            children: <Widget>[
-              CustomPaint(
-                size: Size.fromHeight(300),
-                painter: ChartPainter(),
-              ),
-              Column(
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Text("12AM"),
-                      SizedBox(width: 55),
-                      Text("6AM"),
-                      SizedBox(width: 55),
-                      Text("12PM"),
-                      SizedBox(width: 55),
-                      Text("6PM"),
-                    ],
-                  ),
-                  Container(
-                    height: _barMaxHeight,
-                    width: double.infinity,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: _randomBars,
+    return Container(
+      decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+      margin: EdgeInsets.all(5),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          SizedBox(height: 20),
+          Text("معدل عدم التركيز اثناء القيادة"),
+          Container(
+            width: double.infinity,
+            height: 329,
+            padding:
+                const EdgeInsets.only(bottom: 5, top: 20, right: 10, left: 10),
+            child: Stack(
+              children: <Widget>[
+                CustomPaint(
+                  size: Size.fromHeight(300),
+                  painter: ChartPainter(),
+                ),
+                Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Text("12AM"),
+                        SizedBox(width: 55),
+                        Text("6AM"),
+                        SizedBox(width: 55),
+                        Text("12PM"),
+                        SizedBox(width: 55),
+                        Text("6PM"),
+                      ],
                     ),
-                  )
-                ],
-              )
-            ],
+                    Container(
+                      height: _barMaxHeight,
+                      width: double.infinity,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: _randomBars,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
-        ),
-      ],
+          KeyInfo(
+            color: Color(0xFF2196f3),
+            info: 'مدة القيادة',
+          ),
+          KeyInfo(
+            color: Color(0xFFe94067),
+            info: 'نسبة عدم التركيز',
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class KeyInfo extends StatelessWidget {
+  final color;
+  final info;
+  KeyInfo({this.color, this.info});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.bottomRight,
+      margin: EdgeInsets.only(top: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Text(this.info),
+          Container(
+            height: 15,
+            width: 15,
+            color: this.color,
+            margin: EdgeInsets.symmetric(horizontal: 10),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -139,7 +178,7 @@ class Bar extends StatelessWidget {
           ),
         ),
         Container(
-          color: Colors.deepPurple.withBlue(255),
+          color: Color(0xFF2196f3),
           height: (driveTime.inSeconds *
                   (1 - unfucusPer) /
                   maxDriveTime.inSeconds) *
@@ -148,7 +187,7 @@ class Bar extends StatelessWidget {
           alignment: Alignment.center,
         ),
         Container(
-          color: Colors.red,
+          color: Color(0xFFe94067),
           height: (driveTime.inSeconds * unfucusPer / maxDriveTime.inSeconds) *
               (barMaxHeight - 20),
           width: barWidth,
