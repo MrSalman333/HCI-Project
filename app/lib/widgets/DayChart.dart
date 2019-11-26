@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'dart:ui' as ui;
 
+import 'package:app/Services/Globales.dart';
 import 'package:flutter/material.dart';
 
 class DayChart extends StatelessWidget {
@@ -86,7 +87,7 @@ class DayChart extends StatelessWidget {
             info: 'مدة القيادة',
           ),
           KeyInfo(
-            color: Color(0xFFe94067),
+            color: MyColors.red,
             info: 'نسبة عدم التركيز',
           )
         ],
@@ -188,7 +189,11 @@ class Bar extends StatelessWidget {
           alignment: Alignment.center,
         ),
         Container(
-          color: Color(0xFFe94067),
+          decoration: BoxDecoration(
+              gradient: RadialGradient(colors: [
+            MyColors.red.withBlue(25).withGreen(25).withRed(220),
+            MyColors.red
+          ], radius: 1)),
           height: (driveTime.inSeconds * unfucusPer / maxDriveTime.inSeconds) *
               (barMaxHeight - 20),
           width: barWidth,

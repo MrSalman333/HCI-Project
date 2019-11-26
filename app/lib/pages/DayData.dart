@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/AppUsage.dart';
 import '../widgets/DayChart.dart';
+import '../Services/Globales.dart';
 
 class DayData extends StatelessWidget {
   List<dynamic> get _randomData {
@@ -75,7 +76,7 @@ class DayData extends StatelessWidget {
           child: Stack(
             children: <Widget>[
               Container(
-                color: Color(0xFFe94067),
+                color: MyColors.red,
                 width: notFocusPer * 350,
               ),
               Container(
