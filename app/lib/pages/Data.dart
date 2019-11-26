@@ -1,3 +1,4 @@
+import 'package:app/pages/DayData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,7 @@ class _DataState extends State<Data> {
                   groupValue: _selected,
                   onValueChanged: (value) => setState(() => _selected = value)),
             ),
-            _selected == "day" ? Chart() : Text("week")
+            _selected == "day" ? DayData() : Text("week")
           ],
         ),
       ),

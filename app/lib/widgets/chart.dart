@@ -15,22 +15,24 @@ class Chart extends StatelessWidget {
 
   final _barWidth = 30.0;
   final _barMaxHeight = 284.0;
-
+  final List<dynamic> data;
   List<Widget> get _randomBars {
     var list = <Widget>[];
     for (var i = 0; i < 8; i++) {
-      var randomS = Random().nextInt(10800);
-      if (randomS < 1000) randomS = 0;
+      var driveTime = this.data[i]['driveTime'];
+      var focusPer = this.data[i]['focusPer'];
       list.add(Bar(
         barMaxHeight: _barMaxHeight,
         barWidth: _barWidth,
-        driveTime: Duration(seconds: randomS),
+        driveTime: Duration(seconds: driveTime),
         maxDriveTime: Duration(seconds: 10800),
-        unfucusPer: Random().nextDouble(),
+        unfucusPer: focusPer,
       ));
     }
     return list;
   }
+
+  Chart({this.data});
 
   @override
   Widget build(BuildContext context) {
