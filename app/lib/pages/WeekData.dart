@@ -67,31 +67,7 @@ class WeekData extends StatelessWidget {
           data: _randomData,
         ),
         SizedBox(height: 20),
-        Container(
-          height: 30,
-          width: 350,
-          decoration: BoxDecoration(
-              color: Colors.white, border: Border.all(color: Colors.black)),
-          child: Stack(
-            children: <Widget>[
-              Container(
-                color: Color(0xFFe94067),
-                width: notFocusPer * 350,
-              ),
-              Container(
-                width: 1,
-                color: Colors.black38,
-                margin: EdgeInsets.only(left: oldnotFocusPer * 350),
-              )
-            ],
-          ),
-        ),
-        Container(
-          width: double.infinity,
-          child: Container(
-              margin: EdgeInsets.only(left: (oldnotFocusPer * 350) - 50),
-              child: Text('معدل عدم التركيز الاسبوع الماضي')),
-        ),
+        
         SizedBox(height: 20),
         Container(
           alignment: Alignment.centerRight,
