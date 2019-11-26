@@ -35,13 +35,13 @@ class Chart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black), color: Colors.white),
       margin: EdgeInsets.all(5),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           SizedBox(height: 20),
-          Text("معدل عدم التركيز اثناء القيادة"),
           Container(
             width: double.infinity,
             height: 329,
