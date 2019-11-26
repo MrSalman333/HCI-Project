@@ -1,10 +1,9 @@
 import 'dart:core';
-import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
-class Chart extends StatelessWidget {
+class DayChart extends StatelessWidget {
 /*   final _barWidth = 28.0;
   final _barMargin = .6965;
   final _barMaxHeight = 284.0;
@@ -16,9 +15,9 @@ class Chart extends StatelessWidget {
   final _barWidth = 30.0;
   final _barMaxHeight = 284.0;
   final List<dynamic> data;
-  List<Widget> get _randomBars {
+  List<Widget> get _bars {
     var list = <Widget>[];
-    for (var i = 0; i < 8; i++) {
+    for (var i = 0; i < data.length; i++) {
       var driveTime = this.data[i]['driveTime'];
       var focusPer = this.data[i]['focusPer'];
       list.add(Bar(
@@ -32,7 +31,7 @@ class Chart extends StatelessWidget {
     return list;
   }
 
-  Chart({this.data});
+  DayChart({this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +73,7 @@ class Chart extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.end,
-                        children: _randomBars,
+                        children: _bars,
                       ),
                     )
                   ],

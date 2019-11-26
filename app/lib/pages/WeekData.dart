@@ -3,13 +3,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../widgets/AppUsage.dart';
-import '../widgets/DayChart.dart';
+import '../widgets/WeekChart.dart';
 
-class DayData extends StatelessWidget {
+class WeekData extends StatelessWidget {
   List<dynamic> get _randomData {
     var list = List<dynamic>();
-    for (var i = 0; i < 8; i++) {
-      var randomDriveTime = Random().nextInt(10800);
+    for (var i = 0; i < 7; i++) {
+      var randomDriveTime = Random().nextInt(86400);
       list.add({
         'driveTime': randomDriveTime < 1000 ? 0 : randomDriveTime,
         'focusPer': Random().nextDouble()
@@ -34,8 +34,8 @@ class DayData extends StatelessWidget {
     for (var i = 0; i < 4; i++) {
       value.add({
         'appName': appNames[i],
-        'appTime': Duration(seconds: Random().nextInt(10800)),
-        'maxAppTime': Duration(seconds: 10800),
+        'appTime': Duration(seconds: Random().nextInt(86400)),
+        'maxAppTime': Duration(seconds: 86400),
       });
     }
     return value;

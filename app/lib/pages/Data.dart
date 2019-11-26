@@ -1,8 +1,7 @@
 import 'package:app/pages/DayData.dart';
+import 'package:app/pages/WeekData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../widgets/chart.dart';
 
 class Data extends StatefulWidget {
   @override
@@ -17,22 +16,28 @@ class _DataState extends State<Data> {
       appBar: AppBar(),
       body: Container(
         color: Color(0xFFFBF1F1),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(height: 20),
-            Container(
-              width: double.infinity,
-              child: CupertinoSegmentedControl(
-                  borderColor: Colors.black,
-                  pressedColor: Theme.of(context).primaryColor.withAlpha(100),
-                  selectedColor: Theme.of(context).primaryColor,
-                  children: {"day": Text("اليوم"), "week": Text("اخر 7 ايام")},
-                  groupValue: _selected,
-                  onValueChanged: (value) => setState(() => _selected = value)),
-            ),
-            _selected == "day" ? DayData() : Text("week")
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(height: 20),
+              Container(
+                width: double.infinity,
+                child: CupertinoSegmentedControl(
+                    borderColor: Colors.black,
+                    pressedColor: Theme.of(context).primaryColor.withAlpha(100),
+                    selectedColor: Theme.of(context).primaryColor,
+                    children: {
+                      "day": Text("اليوم"),
+                      "week": Text("اخر 7 ايام")
+                    },
+                    groupValue: _selected,
+                    onValueChanged: (value) =>
+                        setState(() => _selected = value)),
+              ),
+              _selected == "day" ? DayData() : WeekData()
+            ],
+          ),
         ),
       ),
     );
