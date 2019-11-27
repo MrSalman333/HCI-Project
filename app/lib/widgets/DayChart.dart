@@ -60,11 +60,11 @@ class DayChart extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Text("12AM"),
-                        SizedBox(width: 55),
+                        SizedBox(width: 75),
                         Text("6AM"),
-                        SizedBox(width: 55),
+                        SizedBox(width: 75),
                         Text("12PM"),
-                        SizedBox(width: 55),
+                        SizedBox(width: 75),
                         Text("6PM"),
                       ],
                     ),

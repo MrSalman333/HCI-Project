@@ -16,6 +16,7 @@ class _DataState extends State<Data> {
       appBar: AppBar(),
       body: Container(
         color: Color(0xFFFBF1F1),
+        height: MediaQuery.of(context).size.height,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
